@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .course-overview-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  
+  .course-details {
+      text-align: center;
+  }
+  
+  .course-image-container {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+  }
+  
+  .course-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  
+  .course-name {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 10px 0;
+  }
+  
+  .course-description, .course-credits {
+      font-size: 1.2rem;
+      color: #555;
+  }
+  
+  .course-topics, .student-progress {
+      margin-top: 20px;
+  }
+  
+  .course-topics h3, .student-progress h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+  
+  .course-topics ul {
+      list-style-type: none;
+      padding: 0;
+  }
+  
+  .course-topics li {
+      display: flex;
+      justify-content: space-between;
+      background: #f7f7f7;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+  }
+
+  .progress-container {
+      margin-top: 20px;
+  }
+
+  .progress-bar {
+      width: 100%;
+      background-color: #f1f1f1;
+      border-radius: 0.25rem;
+      overflow: hidden;
+  }
+
+  .progress-bar-fill {
+      height: 1.5rem;
+      background-color: #4299e1;
+      text-align: center;
+      color: #fff;
+      line-height: 1.5rem;
+  }
+</style>
+
+<div class="course-overview-container">
+    <div class="course-details">
+        <div class="course-image-container">
+            <img src="{{ course.images.url }}" class="course-image" alt="Course Image">
+        </div>
+        <h2 class="course-name">{{ course.course_name }}</h2>
+        <p class="course-description">{{ course.description }}</p>
+        <p class="course-credits">Credits: {{ course.credit }}</p>
+    </div>
+
+    <div class="course-topics">
+        <h3>Topics</h3>
+        <ul>
+            {% for topic in course.topics.all %}
+                <li>
+                    <span>{{ topic.name }}</span>
+                    {% if topic in student_progress.completed_topics.all %}
+                    <span>✓</span>
+                    {% else %}
+                    <a href="{% url 'mark_topic_complete' course.id topic.id %}">Mark as Complete</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-bar-fill">{{ progress }}%</div>
+        </div>
+    </div><br>
+</div>
+{% endblock %}

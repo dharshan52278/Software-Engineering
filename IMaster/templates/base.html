@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMaster</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+* {
+  margin: 0;
+}
+
+.navbar {
+  padding: 25px;
+  background-color: rgb(248, 82, 160); 
+}
+
+.navbar h1 {
+  text-align: center;
+  color: beige;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav ul li {
+  list-style: none;
+  margin-right: 30px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: beige;
+  font-size: 18px;
+}
+
+.footer {
+  background-color: rgb(248, 82, 160);
+  color: beige;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin-bottom: 10px; 
+}
+
+.footer ul {
+  list-style-type: none; 
+  padding: 0; 
+  margin-top: 20px; 
+}
+
+.footer ul li {
+  display: inline-block; 
+  margin-right: 10px; 
+}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="text-4xl font-serif"><i class="fa fa-fw fa-book"></i>IMaster</h1><br>
+    <nav class="nav">
+        <ul>
+            <li><a href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-search"></i>About</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-envelope"></i>Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'enrolled_courses' %}">My Courses</a></li>
+            <li><a href="{% url 'timetable' %}"><i class="fa fa-fw fa-table"></i>TimeTable</a></li>
+            <li style="color: beige; font-size: medium;">Hello, {{ user.username }}</li>
+            <li><a href="{% url 'logout' %}" onclick="noBack()">Logout</a></li>
+            {% if is_admin %}
+            <li><a href="{% url 'admins' %}">Admin</a></li>
+            {% endif %}
+            {% else %}
+            <li><a href="{% url 'signup' %}"><i class="fa fa-fw fa-user"></i>Signup</a></li> 
+            <li><a href="{% url 'login' %}"><i class="fa fa-fw fa-user"></i>Login</a></li>
+            {% endif %}
+        </ul>
+    </nav> 
+</header>
+  
+  <div id="content" style="padding-top: 30px;">
+    {% block content %}{% endblock %}
+  </div><br><br><br>
+  
+  <footer class="footer">
+    <p>&copy; 2024 IMaster. All Rights Reserved.</p>  
+    <ul>
+      <li>Whatsapp : 9797970707</li>
+      <li>Facebook : IMaster</li>
+      <li>Twitter : IMaster549</li>
+      <li>Instagram : IMaster.-333</li>
+    </ul>
+  </footer>
+</body>
+</html>

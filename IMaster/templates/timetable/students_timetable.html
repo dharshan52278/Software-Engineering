@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .timetable {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 60px;
+  }
+  .timetable button {
+    width: 100px;
+    background-color: rgb(248, 82, 160);
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  h1 {
+    text-align: center;
+  }
+</style>
+<br><br><br><br>
+<h1>Choose Your Department</h1>
+<div class="timetable">
+  <button type="button" onclick="window.location.href='{% url 'cse_timetable' %}'">CSE</button>
+  <button type="button" onclick="window.location.href='{% url 'it_timetable' %}'">IT</button>
+</div>
+{% endblock %}

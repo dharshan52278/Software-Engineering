@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTable-CSE</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+.timetable{
+    background: linear-gradient(to right ,#143d83,#02c6f4);
+    padding: 20px;
+    color:whitesmoke
+   
+}
+.bottom{
+    background: linear-gradient(to right ,#143d83,#02c6f4);
+    padding: 20px;
+    text-align :center;
+    position :fixed;
+    bottom:0;
+    width:100%;
+}
+.bottom p{
+    margin-bottom:10px;
+    color:whitesmoke;
+}
+.bottom ul{
+    list-style-type:none;
+    margin-top :20px;
+}
+.bottom ul li{
+    display: inline-block;
+    color:whitesmoke
+}
+table{
+    width: 80%;
+}
+th , td {
+   
+    padding:5px;
+    text-align: center;
+    border:1px solid black;
+
+}
+.table-settings{
+    display:flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+</style>
+<body>
+    <center> <strong><h1 class = "timetable"> TimeTable -- CSE </h1></strong></center>
+   <footer class = "bottom">
+        <p>&copy; 2024 IMaster. All Rights Reserved.</p>
+        <ul>
+            <li>Whatsapp : 9797970707</li>
+            <li>Facebook : IMaster</li>
+            <li>Twitter : IMater549</li>
+            <li>Instagram : IMaster.-333</li>
+        </ul>
+   </footer> 
+   <div class="table-settings">
+   <table  >
+    <tr>
+        <th style = "color: red;  ">Days/Periods</th>
+        <th style = "color: red; ">1</th>
+        <th style = "color: red; ">2</th>
+        <th style = "color: red; "> </th>
+        <th style = "color: red; ">3</th>
+        <th style = "color: red; ">4</th>
+        <th style = "color: red; "> </th>
+        <th style = "color: red; ">5</th>
+        <th style = "color: red; ">6</th>
+        <th style = "color: red; ">7</th>
+    </tr>
+    <tr>
+        <td style = "color: red;">MON</td>
+        <td>OS</td>
+        <td>DS</td>
+        <td rowspan ="6" style="color:blue"> B<br>R<br>E<br>A<br>K <br></td>
+        <td>DBMS</td>
+        <td>SOF ENG</td>
+        <td rowspan ="6" style="color:blue"> L<br>U<br>N<br>C<br>H <br></td>
+        <td colspan = "2" style="color:blue">OS LAB</td>
+        <td>DAA</td>
+
+    </tr>
+    <tr>
+        <td style = "color: red;">TUE</td>
+        <td>DAA</td>
+        <td>OS</td>
+        
+        <td>DBMS</td>
+        <td>MAT</td>
+       
+        <td>DS</td>
+        <td colspan ="2" style="color:blue">SOF LAB</td>
+       
+    </tr>
+    <tr>
+        <td style = "color: red;">WED</td>
+        <td>OS</td>
+        <td>MAT</td>
+        
+        <td colspan ="2" style="color:blue">MAT LAB</td>
+        
+        <td>IWD</td>
+        <td>TOC</td>
+        <td>DAA</td>
+
+    </tr>
+    <tr>
+        <td style = "color: red;">THU</td>
+        <td>DBMS</td>
+        <td>DS</td>
+        
+        <td>DAA</td>
+        <td>MAT</td>
+        
+        <td colspan ="2" style="color:blue">IWD LAB</td>
+        <td>DBMS</td>
+
+    </tr>
+    <tr>
+        <td style = "color: red;">FRI</td>
+        <td>DBMS</td>
+        <td>OS</td>
+        
+        <td>SOF ENG</td>
+        <td>DS</td>
+        
+        <td>MAT</td>
+        <td>DAA</td>
+        <td>TOC</td>
+
+    </tr>
+   </table></div>
+</body>
+</html>
