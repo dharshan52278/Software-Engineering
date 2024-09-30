@@ -46,7 +46,11 @@ class StudentCourseProgress(models.Model):
         return f"{self.student.username} - {self.course.course_name} - {self.progress}%"
 
 class File(models.Model):
-    file = models.FileField(upload_to = 'uploads')        
+    file = models.FileField(upload_to = 'uploads') 
+
+class Logs(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)           
 
 
 

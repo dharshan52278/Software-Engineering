@@ -1,15 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+  .excel {
+    margin-left: 40%;
+  }
+  .log {
+    margin-left: 10%;
+  }
+</style>
 
-<h1>Upload Excel File</h1><br>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <input type="file" name="file" required>
-  <button type="submit">Submit</button>
-</form>
+<div class="excel">
+  <h1>Upload Excel File</h1><br>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file" required>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 <div class="message mt-3">
   {% for message in messages %}
   <p>{{message}}</p>
   {% endfor %}
+</div>
+<br>
+<hr>
+<br>
+<div class="log">
+  <table border="1" width="88%">
+    <thead>
+      <th>Rollno</th>
+      <th>Enrolled courses</th>
+      <th>Institution</th>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+      <tr>
+        <td>{{course.course_name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}

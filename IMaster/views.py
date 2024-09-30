@@ -154,6 +154,9 @@ def enroll_course(request, course_id):
 
     if user not in course.enrolled_students.all():
         course.enrolled_students.add(user)
+        a = course.enrolled_students.all()
+        for i in a:
+          print(i)
         messages.success(request, f'You have successfully enrolled in {course.course_name}')
     else:
         messages.warning(request, f'You are already enrolled in {course.course_name}')
@@ -194,8 +197,11 @@ def cse_timetable(request):
 
 def it_timetable(request):
   is_admin = request.user.groups.filter(name='Admin').exists()
-  return render(request, "timetable/IT_timetable.html", {"is_admin":is_admin})    
+  return render(request, "timetable/IT_timetable.html", {"is_admin":is_admin})  
 
+def log(request):
+    courses = Course.objects.all()
+    return render(request, "Admin/admins.html", {'courses': courses})
   
 
   
